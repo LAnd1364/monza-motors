@@ -1,0 +1,81 @@
+* {
+	transition: .3s;
+}
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+h1 {
+	@extend %NotoSans-700;
+	font-size: 50px;
+	font-weight: 700;
+}
+h2 {
+	@extend %Poppins-700;
+	font-size: 50px;
+	font-weight: 700;
+	margin-bottom: 70px;
+}
+h3 {
+  @extend %NotoSans-700;
+	font-size: 30px;
+	font-weight: 600;
+}
+h4 {
+  @extend %NotoSans-400;
+	font-size: 25px;
+	font-weight: 600;
+}
+h5 {
+	@extend %NotoSans-400;
+	font-size: 20px;
+	font-weight: 500;
+}
+h6 {
+	@extend %NotoSans-400;
+  font-size: 17px;
+	line-height: 25px;
+  font-weight: 400;
+	color: #000;
+}
+a {
+	text-decoration: none;
+}
+.button1,
+.span1 {
+  @extend %NotoSans-400;
+	font-size: 20px;
+	font-weight: 500;
+}
+.button2,
+.forms,
+.tabs {
+  @extend %NotoSans-400;
+	font-size: 15px;
+	font-weight: 400;
+}
+.links {
+  @extend %NotoSans-400;
+  font-size: 15px;
+  font-weight: 500;
+}
+.span2 {
+  @extend %NotoSans-400;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.checkbox {
+	width: 16px;
+	height: 16px;
+	background-color: #f8f8f8;
+	border: 1px solid #8D8D8D;
+	border-radius: 3px;
+}
+.form-check-label {
+	color: #8d8d8d;
+	&.active {
+		color: #DF4E3C;
+	}
+}

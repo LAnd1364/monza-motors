@@ -1,0 +1,52 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/utilities";
+
+$utilities: (
+  "color": (
+    property: color,
+    class: Color,
+    state: hover,
+    values: (
+      "primary-100": #000000,
+      "primary-200": #f8f8f8,
+      "primary-300": #DF4E3C,
+      "secondary-100": #aeaeae,
+      "secondary-200": #8d8d8d,
+      "secondary-300": #bdbdbd,
+      "secondary-400": #c4c4c4,
+      "secondary-500": #ffffff,
+      "secondary-600": #959595,
+      "secondary-700": #507a36,
+      "transp": transparent
+    )
+  ),
+  "bg-color": (
+    property: background-color,
+    class: bg,
+    values: (
+      "primary-200": #f8f8f8
+    )
+  ),
+  "font-size": (
+    property: font-size,
+    class: fz,
+    values: (
+      "12": 12px
+    )
+  ),
+);
+
+$navbar-dark-color: #f8f8f8;
+
+$form-check-input-checked-border-color: #DF4E3C;
+$form-check-input-checked-bg-color: #DF4E3C;
+$form-check-input-focus-border: #8D8D8D;
+$form-check-input-focus-box-shadow: none;
+
+$form-select-focus-border-color:#BDBDBD;
+$form-select-focus-box-shadow: none;
+
+$card-title-spacer-y: $spacer * 0;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
