@@ -58,12 +58,11 @@
 	</header>
 
 	<section class="offers p-5">
-		<div class="container">
+		<div class="container-md">
 			<h2 class="text-center text-uppercase Color-secondary-100">CURRENT OFFERS</h2>
-
 			<div class="offers__form mb-4">
-				<div class="d-flex justify-content-between mb-4">
-					<div class="offers__filters row w-75 g-3">
+				<div class="d-flex flex-column flex-sm-row justify-content-between mb-4">
+					<div class="offers__filters flex-grow-1 row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 w-sm-75 w-xxl-100 g-2 g-md-3 mb-3	mb-sm-0 me-sm-3">
 						<div class="col">
 							<select class="offers__select offers__year form-select">
 							  <option value="0">Year</option>
@@ -110,16 +109,16 @@
 						<div class="col">
 							<select class="offers__select offers__mileage form-select">
 							  <option value="0">Mileage</option>
-							  <option value="0-19999">&amp; 20,000 km</option>
+							  <option value="0-19999">&#60; 20,000 km</option>
 							  <option value="20000-49999">20,000 - 50,000 km</option>
 							  <option value="50000-99999">50,000 - 100,000 km</option>
 							  <option value="100000-9000000">> 100,000 km</option>
 							</select>
 						</div>
 					</div>
-					<button class="offers__btn button2 w-25" type="submit"></button>
+					<button class="offers__btn button2" type="submit"></button>
 				</div>
-				<div class="d-flex align-items-center justify-content-between fs-6 fz-12 mb-4">
+				<div class="d-flex flex-column align-items-start flex-md-row align-items-md-center justify-content-between fs-6 fz-12 mb-4">
 					<div class="form-check">
   				  <input type="checkbox" class="offers__checkbox form-check-input checkbox" id="available">
   				  <label class="offers__label form-check-label align-text-top ms-1" for="available">Instantly available vehicles</label>

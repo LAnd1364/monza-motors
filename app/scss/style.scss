@@ -55,6 +55,8 @@
 			}
 		}
 	&__btn {
+		min-width: 24%;
+		white-space: nowrap;
 		color: #F8F8F8;
 		background-color: #DF4E3C;
 		border: 2px solid #DF4E3C;
@@ -313,6 +315,11 @@ form {
 			padding-right: 25px;
 		}
 	}
+	.offers {
+		&__btn {
+			width: 24%;
+		}
+	}
 	.subscribe {
 		padding: 40px 50px 45px;
 		&__text {
@@ -393,6 +400,12 @@ form {
 	}
 }
 @media (max-width: 576px) {
+	.offers {
+		&__btn {
+			min-width: 100%;
+			height: 48px;
+		}
+	}
 	.footer {
 		height: 180px;
 		&__nav {
