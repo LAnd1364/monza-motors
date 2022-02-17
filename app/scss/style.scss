@@ -42,6 +42,32 @@
 
 .offers {
 	margin: 50px 0 70px;
+		&__select {
+			color: #000;
+			background-color: transparent;
+			border: 1px solid #BDBDBD;
+			border-radius: 15px;
+			cursor: pointer;
+			&.active {
+				background-color: #fff;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+		}
+	&__btn {
+		color: #F8F8F8;
+		background-color: #DF4E3C;
+		border: 2px solid #DF4E3C;
+		border-radius: 15px;
+		&:hover {
+			color: #DF4E3C;
+			background-color: transparent;
+		}
+		&:active {
+			color: #F8F8F8;
+			background-color: #DF4E3C;
+		}
+	}
 	&__checkbox {
 		cursor: pointer;
 	}
@@ -51,20 +77,6 @@
 }
 form {
 	@extend %NotoSans-400;
-}
-.filters {
-	& .form-select {
-		color: #000;
-		background-color: transparent;
-		border: 1px solid #BDBDBD;
-		border-radius: 15px;
-		cursor: pointer;
-		&.active {
-			background-color: #fff;
-			border-bottom-left-radius: 0;
-			border-bottom-right-radius: 0;
-		}
-	}
 }
 .arrowUp {
 	left: 42%;
@@ -155,7 +167,7 @@ form {
 
 .subscribe {
 	background-color: #000;
-	padding: 40px 90px 30px;
+	padding: 40px 90px 45px;
 	&__text {
 		margin-right: 95px;
 	}
@@ -243,11 +255,14 @@ form {
 	}
 	&__btn {
 		min-width: 190px;
+		width: 190px;
+		height: 54px;
 		color: #000;
 		background-color: #F8F8F8;
 		padding-bottom: 2px;
 		border: 2px solid #000;
 		border-radius: 15px;
+		align-self: flex-end;
 		&:hover {
 			color: #F8F8F8;
 			background-color: #000;
@@ -282,6 +297,12 @@ form {
 			padding-right: 25px;
 		}
 	}
+	.subscribe {
+		padding: 40px 50px 45px;
+		&__text {
+			margin-right: 40px;
+		}
+	}
 }
 @media (max-width: 1000px) {
 	.header {
@@ -300,6 +321,16 @@ form {
 			& p {
 				padding-right: 15px;
 			}
+		}
+	}
+	.subscribe {
+		padding: 30px 40px 35px;
+		&__form {
+			height: 118px;
+			flex-direction: column;
+		}
+		&__input-wrap {
+			margin: 0 0 10px;
 		}
 	}
 	.footer {
@@ -327,6 +358,21 @@ form {
 			& p {
 				padding-right: 15px;
 			}
+		}
+	}
+	.subscribe {
+		padding: 25px 30px 30px;
+		&__text {
+			margin-right: 0;
+		}
+		&__form {
+			height: 133px;
+		}
+		&__input-wrap {
+			margin: 15px 0 10px;
+		}
+		&__input {
+			max-width: 100%;
 		}
 	}
 }
