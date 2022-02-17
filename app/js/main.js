@@ -25,19 +25,20 @@ let selectedTrim = filterTrim.value;
 let selectedMileage = filterMileage.value;
 let selectedFilter = filterMileage.value;
 
-filtersBtn.innerHTML = `${allCars.length} cars`;
-
-filtersBtn.addEventListener('click', filterCars)
-
 let subscrWrap = document.querySelector('.subscribe__input-wrap');
 let subscrInput = document.querySelector('.subscribe__input');
 let subscrInputMsg = document.querySelector('.subscribe__input-message');
 let subscrBtn = document.querySelector('.subscribe__btn');
 
+let accordeonBtns = document.querySelectorAll('.accordion-button');
 
 document.addEventListener('click', deactSelects1);
 document.addEventListener('contextmenu', deactSelects2);
 document.addEventListener('visibilitychange', deactSelects2);
+
+filtersBtn.innerHTML = `${allCars.length} cars`;
+
+filtersBtn.addEventListener('click', filterCars);
 
 filters.forEach(el => activate(el));
 
@@ -48,6 +49,8 @@ subscrInput.addEventListener('blur', (e) => e.target.placeholder = 'Enter your e
 subscrInput.addEventListener('input', validateMailOnInput);
 
 subscrBtn.addEventListener('click', validateMailOnClick);
+
+accordeonBtns.forEach(el => accordOnClick(el));
 
 function deactSelects1(e) {
   !e.target.classList.contains('form-select') ?
@@ -196,4 +199,17 @@ function validateMailOnClick() {
     subscrInput.classList.remove('valid-mail'),
     subscrWrap.classList.remove('valid-mail')
   ]
+}
+
+function accordOnClick(el) {
+  el.addEventListener('click', function() {
+    let checkClasses = '';
+    this.classList.contains('active') ? checkClasses = 'y' : 'n'
+
+    accordeonBtns.forEach(btn => btn.classList.remove('active'));
+
+    checkClasses === "y" ?
+    this.classList.remove('active') :
+    this.classList.add('active')
+  })
 }

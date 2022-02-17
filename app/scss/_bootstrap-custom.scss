@@ -49,4 +49,20 @@ $form-select-focus-box-shadow: none;
 
 $card-title-spacer-y: $spacer * 0;
 
+$accordion-button-color: #000;
+$accordion-button-bg: #F8F8F8;
+$accordion-button-active-bg: #fff;
+$accordion-button-active-color: #DF4E3C;
+$accordion-button-focus-box-shadow: none;
+
+
+$accordion-body-padding-y: 24px; 
+$accordion-body-padding-x: 40px;
+$accordion-border-color: #c4c4c4;
+$accordion-icon-width: 11px;
+$accordion-button-icon: url(../images/icons/accordeonIcon.svg);
+$accordion-button-active-icon: url(../images/icons/accordeonIconActive.svg);
+$accordion-icon-transform: none;
+
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
