@@ -81,9 +81,25 @@ form {
 .arrowUp {
 	left: 42%;
 	bottom: -2px;
+	path {
+		fill: #8D8D8D;
+	}
+	&.active {
+		path {
+			fill: #DF4E3C;
+		}
+	}
 }
 .arrowDown {
 	top: -1px;
+	path {
+		fill: #8D8D8D;
+	}
+	&.active {
+		path {
+			fill: #DF4E3C;
+		}
+	}
 }
 .card {
 	height: 100%;
@@ -115,7 +131,7 @@ form {
 		left: 0;
 		bottom: 0;
 	}
-	&__sold-img {
+	&__sold-mark {
 		display: flex;
 		justify-content: center;
 		align-items: center;

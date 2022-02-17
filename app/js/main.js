@@ -4,18 +4,26 @@ let filterYear = document.querySelector('.offers__year');
 let filterMake = document.querySelector('.offers__make');
 let filterModel = document.querySelector('.offers__model');
 let filterTrim = document.querySelector('.offers__trim');
+let filterMileage = document.querySelector('.offers__mileage');
 let filtersBtn = document.querySelector('.offers__btn');
 let checkbox = document.querySelector('.offers__checkbox');
+let filterOffers = document.querySelector('.offers__sort');
+let arrowUp = document.querySelector('.arrowUp');
+let arrowDown = document.querySelector('.arrowDown');
 
 let allCars = document.querySelectorAll('.car');
 let allCarsYear = document.querySelectorAll('.car__year');
 let allCarsMake = document.querySelectorAll('.car .card-title');
 let allCarsTrim = document.querySelectorAll('.car__trim');
+let allCarsMileage = document.querySelectorAll('.car__mileage');
+let allCarsSold = document.querySelectorAll('.car__sold-mark');
 
 let selectedYear = filterYear.value;
 let selectedMake = filterMake.value;
 let selectedModel = filterModel.value;
 let selectedTrim = filterTrim.value;
+let selectedMileage = filterMileage.value;
+let selectedFilter = filterMileage.value;
 
 filtersBtn.innerHTML = `${allCars.length} cars`;
 
@@ -63,28 +71,49 @@ function activate(el) {
 
 function filterCars() {
   let carNumber = 0;  
-  
-  allCars.forEach(el => el.classList.remove('hidden'));
+
+  allCars.forEach(function(el) {
+    el.classList.remove('hidden');
+
+    el.classList.contains('unavailable') ?
+    el.classList.add('hidden') : 0
+  });
   
   if (selectedYear !== '0') {
-    allCarsYear.forEach(el => el.innerHTML !== selectedYear ? el.closest('.car').classList.add('hidden') : 0);
+    allCarsYear.forEach(el =>
+      el.innerHTML !== selectedYear ?
+      el.closest('.car').classList.add('hidden') : 0);
   }
 
   if (selectedMake !== '0') {
-    allCarsMake.forEach(el => el.innerHTML.split(' ')[0] !== selectedMake ? el.closest('.car').classList.add('hidden') : 0);
+    allCarsMake.forEach(el =>
+      el.innerHTML.split(' ')[0] !== selectedMake ?
+      el.closest('.car').classList.add('hidden') : 0);
   }
 
   if (selectedModel !== '0') {
     allCarsMake.forEach(function(el) {
       let val = el.innerHTML.split(' ').slice(1).join(' ');
-      console.log(val);
       val !== selectedModel ? el.closest('.car').classList.add('hidden') : 0
     }
   )}
 
   if (selectedTrim !== '0') {
-    allCarsTrim.forEach(el => el.innerHTML !== selectedTrim ? el.closest('.car').classList.add('hidden') : 0);
+    allCarsTrim.forEach(el =>
+      el.innerHTML !== selectedTrim ?
+      el.closest('.car').classList.add('hidden') : 0);
   }
+
+  if (selectedMileage !== '0') {
+    let mileageRange = selectedMileage.split('-');
+
+    allCarsMileage.forEach(function(el) {
+      let formMileage = el.innerHTML.split(',').join('');
+
+      !isInRange(formMileage, mileageRange[0]) || isInRange(formMileage, mileageRange[1]) ?
+      el.closest('.car').classList.add('hidden') : 0
+    }    
+  )}
 
   allCars.forEach(el => !el.classList.contains('hidden') ? carNumber++ : 0);
   filtersBtn.innerHTML = `${carNumber} cars`;
@@ -99,10 +128,30 @@ filterMake.addEventListener('change', function() {
 filterModel.addEventListener('change', function() {
   selectedModel = this.value;
 })
-
 filterTrim.addEventListener('change', function() {
-selectedTrim = this.value;
+  selectedTrim = this.value;
 })
+filterMileage.addEventListener('change', function() {
+  selectedMileage = this.value;
+})
+filterOffers.addEventListener('change', function() {
+  selectedFilter = this.value;
+  let sortType = /ascending/;
+
+  selectedFilter.match(sortType) ?
+  [
+    arrowUp.classList.add('active'),
+    arrowDown.classList.remove('active')
+  ] :
+  [
+    arrowUp.classList.remove('active'),
+    arrowDown.classList.add('active')
+  ]
+})
+
+function isInRange(a, b) {
+  return a - b > 0;
+}
 
 function switcher() {
   let label = this.nextElementSibling;
@@ -110,6 +159,8 @@ function switcher() {
   label.classList.contains('active') ?
   label.classList.remove('active') :
   label.classList.add('active')
+
+  allCarsSold.forEach(el => el.closest('.car').classList.toggle('unavailable'))
 }
 
 function styleInputOnFocus() {
