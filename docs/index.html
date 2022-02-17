@@ -61,63 +61,63 @@
 		<div class="container">
 			<h2 class="text-center text-uppercase Color-secondary-100">CURRENT OFFERS</h2>
 
-			<form class="offers-form mb-4">
+			<div class="offers__form mb-4">
 				<div class="d-flex justify-content-between mb-3">
-					<div class="filters row w-75 g-3">
+					<div class="offers__filters row w-75 g-3">
 						<div class="col">
-							<select class="form-select">
+							<select class="offers__select offers__year form-select">
 							  <option value="0">Year</option>
-							  <option value="1">2014</option>
-							  <option value="2">2015</option>
-							  <option value="3">2016</option>
-							  <option value="4">2017</option>
-							  <option value="5">2018</option>
-							  <option value="6">2019</option>
+							  <option>2014</option>
+							  <option>2015</option>
+							  <option>2016</option>
+							  <option>2017</option>
+							  <option>2018</option>
+							  <option>2019</option>
 							</select>
 						</div>
 						<div class="col">
-							<select class="form-select">
+							<select class="offers__select offers__make form-select">
 							  <option value="0">Make</option>
-							  <option value="1">Honda</option>
-							  <option value="2">Hyundai</option>
-							  <option value="3">Kia</option>
-							  <option value="4">Lexus</option>
-							  <option value="5">Mercedes-Benz</option>
-							  <option value="6">Toyota</option>
-							  <option value="7">Volkswagen</option>
+							  <option>Honda</option>
+							  <option>Hyundai</option>
+							  <option>Kia</option>
+							  <option>Lexus</option>
+							  <option>Mercedes-Benz</option>
+							  <option>Toyota</option>
+							  <option>Volkswagen</option>
 							</select>
 						</div>
 						<div class="col">
-							<select class="form-select">
+							<select class="offers__select offers__model form-select">
 							  <option value="0">Model</option>
-							  <option value="1">Tiguan</option>
-							  <option value="2">Highlander LE A...</option>
-							  <option value="3">Highlander XLE</option>
-							  <option value="4">Venza AWD XLE...</option>
-							  <option value="5">RX 350 F-SPORT</option>
-							  <option value="6">RX 350 LUXURY</option>
-							  <option value="7">Elantra</option>
-							  <option value="8">GLE-Cl...</option>
+							  <option>Tiguan</option>
+							  <option>Highlander LE A...</option>
+							  <option>Highlander XLE</option>
+							  <option>Venza AWD XLE...</option>
+							  <option>RX 350 F-SPORT</option>
+							  <option>RX 350 LUXURY</option>
+							  <option>Elantra</option>
+							  <option>GLE-Cl...</option>
 							</select>
 						</div>
 						<div class="col">
-							<select class="form-select">
+							<select class="offers__select offers__trim form-select">
 							  <option value="0">Trim</option>
-							  <option value="1">Diesel</option>
-							  <option value="2">Gas</option>
+							  <option>Diesel</option>
+							  <option>Gas</option>
 							</select>
 						</div>
 						<div class="col">
-							<select class="form-select">
+							<select class="offers__select form-select">
 							  <option value="0">Mileage</option>
-							  <option value="1">< 20,000 km</option>
-							  <option value="2">20,000 - 50,000 km</option>
-							  <option value="3">50,000 - 100,000 km</option>
-							  <option value="4">> 100,000 km</option>
+							  <option>< 20,000 km</option>
+							  <option>20,000 - 50,000 km</option>
+							  <option>50,000 - 100,000 km</option>
+							  <option>> 100,000 km</option>
 							</select>
 						</div>
 					</div>
-					<button class="">40 cars</button>
+					<button class="offers__btn button2 w-25" type="submit"></button>
 				</div>
 				<div class="d-flex align-items-center justify-content-between fs-6 fz-12">
 					<div class="form-check">
@@ -161,7 +161,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">19,855</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span class="ps-1">Diesel</span>
+								<span class="car__trim ps-1">Diesel</span>
 							</p>
 							<span class="car__price position-relative mt-auto">34,888</span>
 						</div>
@@ -181,7 +181,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">69,000</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span>Gas</span>
+								<span class="car__trim ps-1">Gas</span>
 							</p>
 							<span class="car__price position-relative mt-auto">27,875</span>
 						</div>
@@ -200,7 +200,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">39,850</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span>Gas</span>
+								<span class="car__trim ps-1">Gas</span>
 							</p>
 							<span class="car__price position-relative mt-auto">38,775</span>
 						</div>
@@ -219,7 +219,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">104,000</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span>Gas</span>
+								<span class="car__trim ps-1">Gas</span>
 							</p>
 							<span class="car__price position-relative mt-auto">23,728</span>
 						</div>
@@ -238,7 +238,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">95,000</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span class="ps-1">Gas</span>
+								<span class="car__trim ps-1">Gas</span>
 							</p>
 							<span class="car__price position-relative mt-auto">11,788</span>
 						</div>
@@ -257,7 +257,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">59,800</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span>Diesel</span>
+								<span class="car__trim ps-1">Diesel</span>
 							</p>
 							<span class="car__price position-relative mt-auto">38,878</span>
 						</div>
@@ -277,7 +277,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">99,000</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span>Gas</span>
+								<span class="car__trim ps-1">Gas</span>
 							</p>
 							<span class="car__price position-relative mt-auto">18,620 </span>
 						</div>
@@ -297,7 +297,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">86,000</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span>Gas</span>
+								<span class="car__trim ps-1">Gas</span>
 							</p>
 							<span class="car__price position-relative mt-auto">34,888</span>
 						</div>
@@ -316,7 +316,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">19,855</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span class="ps-1">Diesel</span>
+								<span class="car__trim ps-1">Diesel</span>
 							</p>
 							<span class="car__price position-relative mt-auto">34,888</span>
 						</div>
@@ -335,7 +335,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">69,000</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span>Gas</span>
+								<span class="car__trim ps-1">Gas</span>
 							</p>
 							<span class="car__price position-relative mt-auto">27,875</span>
 						</div>
@@ -354,7 +354,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">39,850</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span>Gas</span>
+								<span class="car__trim ps-1">Gas</span>
 							</p>
 							<span class="car__price position-relative mt-auto">38,775</span>
 						</div>
@@ -373,7 +373,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">104,000</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span>Gas</span>
+								<span class="car__trim ps-1">Gas</span>
 							</p>
 							<span class="car__price position-relative mt-auto">23,728</span>
 						</div>
@@ -393,7 +393,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">19,855</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span class="ps-1">Diesel</span>
+								<span class="car__trim ps-1">Diesel</span>
 							</p>
 							<span class="car__price position-relative mt-auto">34,888</span>
 						</div>
@@ -412,7 +412,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">69,000</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span>Gas</span>
+								<span class="car__trim ps-1">Gas</span>
 							</p>
 							<span class="car__price position-relative mt-auto">27,875</span>
 						</div>
@@ -431,7 +431,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">39,850</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span>Gas</span>
+								<span class="car__trim ps-1">Gas</span>
 							</p>
 							<span class="car__price position-relative mt-auto">38,775</span>
 						</div>
@@ -450,7 +450,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">104,000</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span>Gas</span>
+								<span class="car__trim ps-1">Gas</span>
 							</p>
 							<span class="car__price position-relative mt-auto">23,728</span>
 						</div>
@@ -468,7 +468,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">95,000</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span class="ps-1">Gas</span>
+								<span class="car__trim ps-1">Gas</span>
 							</p>
 							<span class="car__price position-relative mt-auto">11,788</span>
 						</div>
@@ -487,7 +487,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">59,800</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span>Diesel</span>
+								<span class="car__trim ps-1">Diesel</span>
 							</p>
 							<span class="car__price position-relative mt-auto">38,878</span>
 						</div>
@@ -506,7 +506,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">99,000</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span>Gas</span>
+								<span class="car__trim ps-1">Gas</span>
 							</p>
 							<span class="car__price position-relative mt-auto">18,620 </span>
 						</div>
@@ -526,7 +526,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">86,000</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span>Gas</span>
+								<span class="car__trim ps-1">Gas</span>
 							</p>
 							<span class="car__price position-relative mt-auto">34,888</span>
 						</div>
@@ -545,7 +545,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">19,855</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span class="ps-1">Diesel</span>
+								<span class="car__trim ps-1">Diesel</span>
 							</p>
 							<span class="car__price position-relative mt-auto">34,888</span>
 						</div>
@@ -564,7 +564,7 @@
 							<p class="card-text">
 								<span class="car__mileage position-relative">69,000</span>
 								<span class="car__gear px-2">Automatic</span>
-								<span>Gas</span>
+								<span class="car__trim ps-1">Gas</span>
 							</p>
 							<span class="car__price position-relative mt-auto">27,875</span>
 						</div>
@@ -575,7 +575,7 @@
 	</section>
 
 	<section class="subscribe">
-		<div class="container">
+		<div class="container-lg">
 			<div class="d-md-flex justify-content-between align-items-center">
 				<div class="subscribe__text">
 					<h4 class="Color-primary-200 mb-4">Haven't found a suitable vehicle?</h4>
@@ -583,7 +583,7 @@
 						Sign up for our newsletter and be the first to know when we publish new vehicle offers.
 					</p>
 				</div>
-				<form class="subscribe__form d-md-flex">
+				<form class="subscribe__form d-flex">
 					<div class="subscribe__input-wrap">
 				  	<input type="email" class="subscribe__input" placeholder="Enter your email">
 						<span class="subscribe__input-message">Incorrect email</span>
