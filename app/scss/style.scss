@@ -70,10 +70,23 @@
 			background-color: #DF4E3C;
 		}
 	}
+	&__a {
+		font-size: 30px;
+	}
 	&__checkbox {
 		cursor: pointer;
 	}
 	&__label {
+		@extend %NotoSans-400;
+		cursor: pointer;
+	}
+	&__sortBy {
+		@extend %NotoSans-400;
+	}
+	&__sort {
+		@extend %NotoSans-400;
+		background-color: transparent;
+		border: 0;
 		cursor: pointer;
 	}
 }
