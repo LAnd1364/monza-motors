@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
 	<link rel="stylesheet" href="css/style.min.css">
 	<title>Monza Motorsports</title>
 </head>
@@ -133,20 +134,22 @@
 								<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 4.390625 5.117188 L 4.390625 0.0546875 L 2.945312 0.0546875 L 2.945312 5.117188 L 0.777344 5.117188 L 3.667969 8 L 6.554688 5.117188 Z M 4.390625 5.117188 "/>
 							</svg>
 						</span>
-						<select class="offers__sort form-select fz-12 Color-secondary-200">
-						  <option>Publication date (ascending)</option>
-						  <option>Publication date (descending)</option>
-						  <option>Price (ascending)</option>
-						  <option>Price (descending)</option>
-						  <option>Mileage (ascending)</option>
-						  <option>Mileage (descending)</option>
-						  <option>Performance (ascending)</option>
-						  <option>Performance (descending)</option>
-						</select>
+						<div class="offers__sort-wrap">
+							<select class="offers__sort form-select fz-12 Color-secondary-200">
+							  <option class="offers__sort-opt">Publication date (ascending)</option>
+							  <option class="offers__sort-opt">Publication date (descending)</option>
+							  <option class="offers__sort-opt">Price (ascending)</option>
+							  <option class="offers__sort-opt">Price (descending)</option>
+							  <option class="offers__sort-opt">Mileage (ascending)</option>
+							  <option class="offers__sort-opt">Mileage (descending)</option>
+							  <option class="offers__sort-opt">Performance (ascending)</option>
+							  <option class="offers__sort-opt">Performance (descending)</option>
+							</select>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
+			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 g-3">
 				<div class="car col">
 					<div class="card">
 						<div class="car__img position-relative">
