@@ -85,3 +85,40 @@ a {
 .hidden {
 	display: none;
 }
+
+.select-styled {
+	border-radius: 15px;
+	position: absolute;
+	background-color: #fff;
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	&-wrap {
+		position: relative;
+		& select {
+			display: none;
+		}
+	}
+	&-optSelected {
+		color: #8D8D8D;
+		padding: 8px 12px;
+		cursor: pointer;
+		&:hover {
+			color: #DF4E3C;
+		}
+		&:active {
+			color: #8D8D8D;
+		}
+	}
+	&-hide {
+		display: none;
+	}
+	& div {
+		padding: 8px 12px;
+		cursor: pointer;
+		&:hover {
+			color: #DF4E3C;
+		}
+	}
+}
