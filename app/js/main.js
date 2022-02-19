@@ -7,19 +7,13 @@ let filterTrim = document.querySelector('.offers__trim');
 let filterMileage = document.querySelector('.offers__mileage');
 let filtersBtn = document.querySelector('.offers__btn');
 let checkbox = document.querySelector('.offers__checkbox');
-let filterOffers = document.querySelector('.offers__sort');
+
+// let filterOffers = document.querySelector('.offers__sort');
+
+
+
 let arrowUp = document.querySelector('.arrowUp');
 let arrowDown = document.querySelector('.arrowDown');
-let sortOptions = document.querySelectorAll('.offers__sort-opt');
-
-// sortOptions.forEach(el => setOptBg(el));
-
-// function setOptBg(el) {
-//   el.addEventListener('click', function() {
-//     console.log(this);
-//     this.classList.add('hidden');
-//   })
-// }
 
 let allCars = document.querySelectorAll('.car');
 let allCarsYear = document.querySelectorAll('.car__year');
@@ -45,6 +39,7 @@ let accordeonBtns = document.querySelectorAll('.accordion-button');
 document.addEventListener('click', deactSelects1);
 document.addEventListener('contextmenu', deactSelects2);
 document.addEventListener('visibilitychange', deactSelects2);
+document.addEventListener("click", closeAllSelect);
 
 filtersBtn.innerHTML = `${allCars.length} cars`;
 
@@ -147,20 +142,20 @@ filterTrim.addEventListener('change', function() {
 filterMileage.addEventListener('change', function() {
   selectedMileage = this.value;
 })
-filterOffers.addEventListener('change', function() {
-  selectedFilter = this.value;
-  let sortType = /ascending/;
+// filterOffers.addEventListener('change', function() {
+//   selectedFilter = this.value;
+  // let sortType = /ascending/;
 
-  selectedFilter.match(sortType) ?
-  [
-    arrowUp.classList.add('active'),
-    arrowDown.classList.remove('active')
-  ] :
-  [
-    arrowUp.classList.remove('active'),
-    arrowDown.classList.add('active')
-  ]
-})
+  // selectedFilter.match(sortType) ?
+//   [
+//     arrowUp.classList.add('active'),
+//     arrowDown.classList.remove('active')
+//   ] :
+//   [
+//     arrowUp.classList.remove('active'),
+//     arrowDown.classList.add('active')
+//   ]
+// })
 
 function isInRange(a, b) {
   return a - b > 0;
@@ -174,6 +169,12 @@ function switcher() {
   label.classList.add('active')
 
   allCarsSold.forEach(el => el.closest('.car').classList.toggle('unavailable'))
+}
+
+function closeAllSelect() {
+  let allSelectItems = document.querySelectorAll('.select-items');
+
+  allSelectItems.forEach(el => el.classList.add('select-hide'));
 }
 
 function styleInputOnFocus() {
@@ -224,66 +225,51 @@ function accordOnClick(el) {
   })
 }
 
-//-------------------------------------------     select       -----------------------------
-var x, i, j, selElmnt, a, b, c;
-x = document.getElementsByClassName("offers__sort-wrap");
+//-------------------------------------------     offers__sort       -----------------------------
+let sortingSelectWrap = document.querySelectorAll('.offers__sort-wrap');
 
-for (i = 0; i < x.length; i++) {
-    selElmnt = x[i].getElementsByTagName("select")[0];
-    a = document.createElement("DIV");
-    a.setAttribute("class", "select-selected");
-    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-    x[i].appendChild(a);
-    b = document.createElement("DIV");
-    b.setAttribute("class", "select-items select-hide");
-    for (j = 0; j < selElmnt.length; j++) {
-        /*for each option in the original select element,
-        create a new DIV that will act as an option item:*/
-        c = document.createElement("DIV");
-        c.innerHTML = selElmnt.options[j].innerHTML;
-        c.addEventListener("click", function(e) {
-            var y, i, k, s, h;
-            s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-            h = this.parentNode.previousSibling;
-            for (i = 0; i < s.length; i++) {
-                if (s.options[i].innerHTML == this.innerHTML) {
-                    s.selectedIndex = i;
-                    h.innerHTML = this.innerHTML;
-                    y = this.parentNode.getElementsByClassName("same-as-selected");
-                    for (k = 0; k < y.length; k++) {
-                        y[k].removeAttribute("class");
-                    }
-                    this.setAttribute("class", "same-as-selected");
-                    break;
-                }
+sortingSelectWrap.forEach(function(sortItemWrap) {
+  console.log(sortingSelectWrap);
+  let firstSortItems = sortItemWrap.querySelectorAll('select')[0];
+  let sortItemSelected = document.createElement("DIV");
+  let allSortItems = document.createElement("DIV");
+  
+  sortItemSelected.classList.add('offers__sort-type');
+  sortItemSelected.innerHTML = firstSortItems.options[firstSortItems.selectedIndex].innerHTML;
+
+  sortItemWrap.append(sortItemSelected);
+
+  allSortItems.classList.add('select-items', 'select-hide');
+
+  for (let j = 0; j < firstSortItems.length; j++) {
+    let sortItemTag = document.createElement("DIV");
+    sortItemTag.innerHTML = firstSortItems.options[j].innerHTML;
+
+    sortItemTag.addEventListener("click", function() {
+      var y, k, s, h;
+      s = this.parentNode.parentNode.querySelectorAll('select')[0];
+      console.log(s);
+      h = this.parentNode.previousSibling;
+      for (let i = 0; i < s.length; i++) {
+        if (s.options[i].innerHTML === this.innerHTML) {
+              s.selectedIndex = i;
+              h.innerHTML = this.innerHTML;
+              y = this.parentNode.querySelectorAll('.same-as-selected');
+              for (k = 0; k < y.length; k++) {
+                y[k].removeAttribute("class");
+              }
+              this.classList.add('same-as-selected');
+              break;
             }
-            h.click();
-        });
-        b.appendChild(c);
+          }
+          h.click();
+      });
+      allSortItems.append(sortItemTag);
     }
-    x[i].appendChild(b);
-    a.addEventListener("click", function(e) {
-        e.stopPropagation();
-        closeAllSelect(this);
-        this.nextSibling.classList.toggle("select-hide");
-        this.classList.toggle("select-arrow-active");
-    });
-}
-function closeAllSelect(elmnt) {
-    var x, y, i, arrNo = [];
-    x = document.getElementsByClassName("select-items");
-    y = document.getElementsByClassName("select-selected");
-    for (i = 0; i < y.length; i++) {
-        if (elmnt == y[i]) {
-            arrNo.push(i)
-        } else {
-            y[i].classList.remove("select-arrow-active");
-        }
-    }
-    for (i = 0; i < x.length; i++) {
-        if (arrNo.indexOf(i)) {
-            x[i].classList.add("select-hide");
-        }
-    }
-}
-document.addEventListener("click", closeAllSelect);
+  sortItemWrap.append(allSortItems);
+  sortItemSelected.addEventListener("click", function(e) {
+      e.stopPropagation();
+      closeAllSelect();
+      this.nextSibling.classList.toggle("select-hide");
+  });
+})
