@@ -87,20 +87,42 @@ a {
 }
 
 .select-styled {
-	border-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
 	position: absolute;
 	background-color: #fff;
 	top: 100%;
 	left: 0;
 	right: 0;
 	z-index: 1;
+	&-sort div {
+		padding: 8px 12px;
+	}
+	&-filter {
+		margin: 0 8px;
+		& div {
+			padding: 6px 12px 6px 16px;
+			border-right: 1px solid #C4C4C4;
+			border-left: 1px solid #C4C4C4;
+			&:last-child {
+				border-bottom: 1px solid #C4C4C4;
+				border-bottom-left-radius: 15px;
+				border-bottom-right-radius: 15px;
+			}
+		}
+		&.titteHidden {
+			& div:first-child {
+				display: none;
+			}
+		}
+	}
 	&-wrap {
 		position: relative;
 		& select {
 			display: none;
 		}
 	}
-	&-optSelected {
+	&-optSelected-sort {
 		color: #8D8D8D;
 		padding: 8px 12px;
 		cursor: pointer;
@@ -111,14 +133,38 @@ a {
 			color: #8D8D8D;
 		}
 	}
+	&-optSelected-filter {
+		color: #000;
+		padding: 12px 12px 12px 16px;
+		border: 1px solid #BDBDBD;
+		border-radius: 15px;
+		cursor: pointer;
+		&.active {
+			font-weight: 600;
+			background-color: #fff;
+			border-bottom: 1px solid #fff;
+			border-bottom-left-radius: 0px;
+			border-bottom-right-radius: 0px;
+			transition: 0s;
+		}
+		&.active-opt {
+			background-color: #fff;
+			border: 1px solid #DF4E3C;
+			border-radius: 15px;
+			transition: 0s;
+		}
+	}
 	&-hide {
 		display: none;
 	}
 	& div {
-		padding: 8px 12px;
 		cursor: pointer;
 		&:hover {
 			color: #DF4E3C;
 		}
 	}
+}
+
+.red {
+	color: red;
 }

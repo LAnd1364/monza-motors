@@ -1,10 +1,7 @@
-let selects = document.querySelectorAll('.form-select');
-let filters = document.querySelectorAll('.offers__select');
-let filterYear = document.querySelector('.offers__year');
-let filterMake = document.querySelector('.offers__make');
-let filterModel = document.querySelector('.offers__model');
-let filterTrim = document.querySelector('.offers__trim');
-let filterMileage = document.querySelector('.offers__mileage');
+// let selects = document.querySelectorAll('.form-select');//--------------------------------------------
+let selects = document.querySelectorAll('.offers__filter-wrap');//--------------------------------------------
+let filters = document.querySelectorAll('.offers__select');//--------------------------------------------
+
 let filtersBtn = document.querySelector('.offers__btn');
 let checkbox = document.querySelector('.offers__checkbox');
 
@@ -18,12 +15,6 @@ let allCarsTrim = document.querySelectorAll('.car__trim');
 let allCarsMileage = document.querySelectorAll('.car__mileage');
 let allCarsSold = document.querySelectorAll('.car__sold-mark');
 
-let selectedYear = filterYear.value;
-let selectedMake = filterMake.value;
-let selectedModel = filterModel.value;
-let selectedTrim = filterTrim.value;
-let selectedMileage = filterMileage.value;
-
 let subscrWrap = document.querySelector('.subscribe__input-wrap');
 let subscrInput = document.querySelector('.subscribe__input');
 let subscrInputMsg = document.querySelector('.subscribe__input-message');
@@ -31,18 +22,23 @@ let subscrBtn = document.querySelector('.subscribe__btn');
 
 let accordeonBtns = document.querySelectorAll('.accordion-button');
 
-(styleSortingSelect)();
+let optStyled;
+let parent;
+let child;
 
-document.addEventListener('click', deactSelects1);
-document.addEventListener('contextmenu', deactSelects2);
-document.addEventListener('visibilitychange', deactSelects2);
+(styleSortingSelect)('.select-styled-wrap.offers__sort-wrap');
+(styleSortingSelect)('.select-styled-wrap.offers__filter-wrap');
+
+// document.addEventListener('click', deactSelects1);
+// document.addEventListener('contextmenu', deactSelects2);
+// document.addEventListener('visibilitychange', deactSelects2);
 document.addEventListener("click", closeAllSelect);
 
 filtersBtn.innerHTML = `${allCars.length} cars`;
 
 filtersBtn.addEventListener('click', filterCars);
 
-filters.forEach(el => activate(el));
+// filters.forEach(el => activate(el));//-----------------------------
 
 checkbox.addEventListener('click', switcher);
 
@@ -54,91 +50,79 @@ subscrBtn.addEventListener('click', validateMailOnClick);
 
 accordeonBtns.forEach(el => accordOnClick(el));
 
-function deactSelects1(e) {
-  !e.target.classList.contains('form-select') ?
-  selects.forEach(el => el.classList.remove('active')) : 0
-}
-function deactSelects2() {
-  selects.forEach(el => el.classList.remove('active'));
-}
+// function deactSelects1(e) {
+//   // !e.target.classList.contains('form-select') ?
+//   !e.target.classList.contains('offers__filter-wrap') ?
+//   filterTitles.forEach(el => el.classList.add('red')) : 0//-----------------------------------
+// }
+// function deactSelects2() {
+//   selects.forEach(el => el.classList.remove('active'));//---------------------------------
+// }
 
-function activate(el) {
-  el.addEventListener('click', function() {
-    let checkClasses = '';
-    this.classList.contains('active') ? checkClasses = 'y' : 'n'
-    selects.forEach(el => el.classList.remove('active'));
+// function activate(el) {
+//   el.addEventListener('click', function() {
+//     let checkClasses = '';
+//     this.classList.contains('active') ? checkClasses = 'y' : 'n'
+//     selects.forEach(el => el.classList.remove('active'));//------------------------
 
-    checkClasses === "y" ?
-    this.classList.remove('active') :
-    this.classList.add('active')
-  })
-}
+//     checkClasses === "y" ?
+//     this.classList.remove('active') :
+//     this.classList.add('active')
+//   })
+// }
 
 function filterCars() {
   let carNumber = 0;  
 
   allCars.forEach(function(el) {
     el.classList.remove('hidden');
-
     el.classList.contains('unavailable') ?
     el.classList.add('hidden') : 0
   });
-  
-  if (selectedYear !== '0') {
-    allCarsYear.forEach(el =>
-      el.innerHTML !== selectedYear ?
-      el.closest('.car').classList.add('hidden') : 0);
-  }
 
-  if (selectedMake !== '0') {
-    allCarsMake.forEach(el =>
-      el.innerHTML.split(' ')[0] !== selectedMake ?
-      el.closest('.car').classList.add('hidden') : 0);
-  }
+  parent.classList.contains('offers__year-wrap') ?
+  allCarsYear.forEach(year =>
+    [
+      year.innerHTML !== child.innerHTML ?
+      year.closest('.car').classList.add('hidden') : 0
+    ]
+  ) : 0
 
-  if (selectedModel !== '0') {
-    allCarsMake.forEach(function(el) {
-      let val = el.innerHTML.split(' ').slice(1).join(' ');
-      val !== selectedModel ? el.closest('.car').classList.add('hidden') : 0
-    }
-  )}
+  parent.classList.contains('offers__make-wrap') ?
+  allCarsMake.forEach(make =>
+    [
+      make.innerHTML.split(' ')[0] !== child.innerHTML ?
+      make.closest('.car').classList.add('hidden') : 0
+    ]
+  ) : 0
 
-  if (selectedTrim !== '0') {
-    allCarsTrim.forEach(el =>
-      el.innerHTML !== selectedTrim ?
-      el.closest('.car').classList.add('hidden') : 0);
-  }
+  parent.classList.contains('offers__model-wrap') ?
+  allCarsMake.forEach(model =>
+    [
+      model.innerHTML.split(' ').slice(1).join(' ') !== child.innerHTML ?
+      model.closest('.car').classList.add('hidden') : 0
+    ]
+  ) : 0
 
-  if (selectedMileage !== '0') {
-    let mileageRange = selectedMileage.split('-');
+  parent.classList.contains('offers__trim-wrap') ?
+  allCarsTrim.forEach(trim =>
+    [
+      trim.innerHTML !== child.innerHTML ?
+      trim.closest('.car').classList.add('hidden') : 0
+    ]
+  ) : 0
 
-    allCarsMileage.forEach(function(el) {
-      let formMileage = el.innerHTML.split(',').join('');
-
-      !isInRange(formMileage, mileageRange[0]) || isInRange(formMileage, mileageRange[1]) ?
-      el.closest('.car').classList.add('hidden') : 0
-    }    
-  )}
+  // allCarsTrim.forEach(trim =>
+  //   [
+  //     trim.closest('.car').classList.remove('unavailable'),
+  //     trim.innerHTML !== this.innerHTML && this.innerHTML !== 'Trim' ?
+  //     trim.closest('.car').classList.add('unavailable') : 0
+  //   ]
+  // );
 
   allCars.forEach(el => !el.classList.contains('hidden') ? carNumber++ : 0);
   filtersBtn.innerHTML = `${carNumber} cars`;
 }
-
-filterYear.addEventListener('change', function() {
-  selectedYear = this.value;
-})
-filterMake.addEventListener('change', function() {
-  selectedMake = this.value;
-})
-filterModel.addEventListener('change', function() {
-  selectedModel = this.value;
-})
-filterTrim.addEventListener('change', function() {
-  selectedTrim = this.value;
-})
-filterMileage.addEventListener('change', function() {
-  selectedMileage = this.value;
-})
 
 function isInRange(a, b) {
   return a - b > 0;
@@ -202,25 +186,32 @@ function accordOnClick(el) {
   })
 }
 
-function styleSortingSelect() {
-  let sortingSelectWrap = document.querySelectorAll('.select-styled-wrap');
+function styleSortingSelect(wrap) {
+  let sortingSelectWrap = document.querySelectorAll(wrap);
+  let srapClass = wrap;
+  let filterHead = /Year|Make|Model|Trim|Mileage/;
   
   sortingSelectWrap.forEach(function(sortingSelectWrapEl) {
     let sortingSelect = sortingSelectWrapEl.querySelectorAll('select')[0];
     let selectStyled = document.createElement("DIV");
     let optSelectedStyled = document.createElement("DIV");  
     
-    optSelectedStyled.classList.add('select-styled-optSelected');
+    srapClass.match(/sort/) ?
+    optSelectedStyled.classList.add('select-styled-optSelected-sort') :
+    optSelectedStyled.classList.add('select-styled-optSelected-filter')
+
     optSelectedStyled.innerHTML = sortingSelect.options[sortingSelect.selectedIndex].innerHTML;
-  
     sortingSelectWrapEl.append(optSelectedStyled);
-  
-    selectStyled.classList.add('select-styled', 'select-styled-hide');
+    
+    srapClass.match(/sort/) ?
+    selectStyled.classList.add('select-styled', 'select-styled-sort', 'select-styled-hide') :
+    selectStyled.classList.add('select-styled', 'select-styled-filter', 'select-styled-hide')
+    
     for (let i = 0; i < sortingSelect.length; i++) {
-      let optStyled = document.createElement("DIV");
+      optStyled = document.createElement("DIV");
       optStyled.innerHTML = sortingSelect.options[i].innerHTML;
-  
-      optStyled.addEventListener("click", function() {
+      
+      optStyled.addEventListener("click", function(e) {
         for (let j = 0; j < sortingSelect.length; j++) {
           if (sortingSelect.options[i].innerHTML === this.innerHTML) {
             sortingSelect.selectedIndex = i;
@@ -228,22 +219,50 @@ function styleSortingSelect() {
             
             Array.from(selectStyled).forEach(el => el.classList.remove())
             this.classList.add('same-as-selected');
-
+            
             break;
           }
         }
         checkSortingType(this.innerHTML);
-      });
 
+        if (optSelectedStyled.parentElement.classList.contains('offers__filter-wrap')) {
+          optSelectedStyled.innerHTML.match(filterHead) ?
+          [
+            optSelectedStyled.classList.remove('active') ,
+            optSelectedStyled.classList.remove('active-opt') 
+          ] :
+          optSelectedStyled.classList.add('active-opt')
+        }
+
+        parent = this.parentNode.parentNode;
+        child = parent.querySelector('.active-opt')
+      });
+      
       selectStyled.append(optStyled);
     }
-
+    
     sortingSelectWrapEl.append(selectStyled);
     optSelectedStyled.addEventListener("click", function(e) {
       e.stopPropagation();
       closeAllSelect();
       this.nextSibling.classList.toggle('select-styled-hide');
     });
+
+    srapClass.match(/filter/) ?
+    
+    optSelectedStyled.addEventListener('click', function() {
+      this.innerHTML.match(filterHead) ?
+      [
+        this.classList.add('active'),
+        selectStyled.classList.add('titteHidden')
+      ] :
+      selectStyled.classList.remove('titteHidden')
+
+    }) : 0
+    
+    selectStyled.addEventListener('click', function() {
+      optSelectedStyled.classList.remove('active');
+    })
   })
 }
 

@@ -48,18 +48,7 @@
 	&__form {
 		user-select: none;
 	}
-	&__select {
-		color: #000;
-		background-color: transparent;
-		border: 1px solid #BDBDBD;
-		border-radius: 15px;
-		cursor: pointer;
-		&.active {
-			background-color: #fff;
-			border-bottom-left-radius: 0;
-			border-bottom-right-radius: 0;
-		}
-	}
+
 	&__btn {
 		min-width: 24%;
 		white-space: nowrap;
