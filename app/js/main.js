@@ -111,7 +111,6 @@ function filterCars() {
       trim.closest('.car').classList.add('hidden') : 0
     ]
   ) : 0
-
   // allCarsTrim.forEach(trim =>
   //   [
   //     trim.closest('.car').classList.remove('unavailable'),
@@ -206,12 +205,14 @@ function styleSortingSelect(wrap) {
     srapClass.match(/sort/) ?
     selectStyled.classList.add('select-styled', 'select-styled-sort', 'select-styled-hide') :
     selectStyled.classList.add('select-styled', 'select-styled-filter', 'select-styled-hide')
-    
+    // let arr = [];
+    // arr.push(Array.from(sortingSelect)[0].innerHTML);
+    // console.log(Array.isArray(arr));
+    // console.log(Array.from(sortingSelect)[0].innerHTML);
     for (let i = 0; i < sortingSelect.length; i++) {
       optStyled = document.createElement("DIV");
       optStyled.innerHTML = sortingSelect.options[i].innerHTML;
-      
-      optStyled.addEventListener("click", function(e) {
+      optStyled.addEventListener("click", function() {
         for (let j = 0; j < sortingSelect.length; j++) {
           if (sortingSelect.options[i].innerHTML === this.innerHTML) {
             sortingSelect.selectedIndex = i;
