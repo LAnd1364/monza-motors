@@ -34,6 +34,8 @@ let child;
 // document.addEventListener('visibilitychange', deactSelects2);
 document.addEventListener("click", closeAllSelect);
 
+selects.forEach(sel => hedeArrow(sel));
+
 filtersBtn.innerHTML = `${allCars.length} cars`;
 
 filtersBtn.addEventListener('click', filterCars);
@@ -70,6 +72,12 @@ accordeonBtns.forEach(el => accordOnClick(el));
 //     this.classList.add('active')
 //   })
 // }
+
+function hedeArrow(sel) {
+  sel.addEventListener('click', function() {
+    this.classList.toggle('hide');
+  })
+}
 
 function filterCars() {
   let carNumber = 0;  

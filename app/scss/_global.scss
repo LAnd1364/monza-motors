@@ -139,6 +139,16 @@ a {
 		border: 1px solid #BDBDBD;
 		border-radius: 15px;
 		cursor: pointer;
+		position: relative;
+		&::after {
+			content: '';
+			width: 13px;
+			height: 8px;
+			background-image: url(../images/icons/select-arrow.svg);
+			position: absolute;
+			right: 16px;
+			top: 50%;
+		}
 		&.active {
 			font-weight: 600;
 			background-color: #fff;
@@ -146,6 +156,9 @@ a {
 			border-bottom-left-radius: 0px;
 			border-bottom-right-radius: 0px;
 			transition: 0s;
+			&::after {
+				display: none;
+			}
 		}
 		&.active-opt {
 			background-color: #fff;
